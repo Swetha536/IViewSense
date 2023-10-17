@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        color: black;
+      }
+      h2 {
+        color: black;
+      }
+      #btn {
+        background-color: orangered;
+      }
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to left bottom, pink, black);
+        min-height: 100vh;
+        font-family: monospace;
+      }
+
+      form {
+        background: linear-gradient(to right bottom, pink, white, black);
+        width: 550px;
+        height: 180px;
+        justify-content: center;
+        align-items: center;
+      }
+      #result {
+        font-size: xx-large;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="Container">
+        <h1>Temperature Converter</h1>
+        <h2>Celsius to Fahrenheit Conversion</h2>
+        <div>
+          <input type="text" id="input" />
+        </div>
+        <div>
+          <input type="button" value="Convert" onclick="convert()" id="btn" />
+        </div>
+        <div id="result"></div>
+      </div>
+      <script>
+        function convert() {
+          let Celsius = Number(document.getElementById("input").value);
+          let Fahrenheit = Celsius * (9 / 5) + 32;
+          let convert = document.getElementById("result");
+          convert.innerHTML = Fahrenheit.toFixed(2) + "fahrenheit";
+        }
+      </script>
+    </form>
+  </body>
+</html>
