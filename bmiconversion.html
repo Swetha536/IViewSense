@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: burlywood;
+    }
+    form {
+      background-color: blue;
+      height: 230px;
+      width: 700px;
+      border: 3px solid red;
+      border-radius: 4px;
+      text-align: center;
+      color: white;
+    }
+    h1 {
+      color: white;
+    }
+    div {
+      position: absolute;
+      top: 210px;
+      left: 400px;
+    }
+  </style>
+  <body>
+    <div>
+      <form>
+        <h1>BODY MASS INDEX</h1>
+        <label for="mass value">Mass Value</label>
+        <input type="text" id="weight" /><br /><br />
+        <label for="height value">Height Value</label>
+        <input type="text" id="height" /><br /><br />
+        <input type="button" onclick="CalculateBMI()" value="Click here" />
+        <p id="result"></p>
+      </form>
+    </div>
+    <script>
+      function CalculateBMI() {
+        let weight = Number(document.getElementById("weight").value);
+        let height = Number(document.getElementById("height").value);
+        let BMI = weight / (height * height);
+        document.getElementById("result").innerHTML = BMI;
+      }
+    </script>
+  </body>
+</html>
