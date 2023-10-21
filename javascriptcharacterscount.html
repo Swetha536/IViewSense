@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: burlywood;
+      }
+      .container {
+        text-align: center;
+      }
+      #area {
+        height: 200px;
+        width: 400px;
+        outline: none;
+        border: 2px solid black;
+      }
+      #char {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>Text Counter</h1></center>
+    <div class="container">
+      <textarea id="area" placeholder="Type your text here... "> </textarea
+      ><br />
+      <span id="char">0</span> Characters
+    </div>
+    <script>
+      let area = document.getElementById("area");
+      let char = document.getElementById("char");
+      area.addEventListener("input", function () {
+        let content = this.value;
+        char.textContent = content.length;
+        console.log(content);
+      });
+    </script>
+  </body>
+</html>
