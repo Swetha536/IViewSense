@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      .input-container {
+        text-align: center;
+        margin: 10px;
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+      }
+
+      #result {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Time Difference Calculator</h1>
+    <div class="input-container">
+      <label for="start-time">Start Time:</label>
+      <input type="time" id="start-time" />
+    </div>
+    <div class="input-container">
+      <label for="end-time">End Time:</label>
+      <input type="time" id="end-time" />
+    </div>
+    <button onclick="calculateTimeDifference()">Time Difference</button>
+    <p id="result"></p>
+    <script>
+      function calculateTimeDifference() {
+        const startTime = document.getElementById("start-time").value;
+        const endTime = document.getElementById("end-time").value;
+
+        if (startTime && endTime) {
+          const [startHour, startMinute] = startTime.split(":");
+          const [endHour, endMinute] = endTime.split(":");
+
+          const start = new Date(0, 0, 0, startHour, startMinute);
+          const end = new Date(0, 0, 0, endHour, endMinute);
+
+          if (end >= start) {
+            const timeDifference = new Date(end - start);
+            const hours = timeDifference.getUTCHours();
+            const minutes = timeDifference.getUTCMinutes();
+
+            document.getElementById(
+              "result"
+            ).innerText = `Time difference: ${hours} hours and ${minutes} minutes`;
+          } else {
+            document.getElementById("result").innerText =
+              "End time should be later than start time.";
+          }
+        } else {
+          document.getElementById("result").innerText =
+            "Please enter valid start and end times.";
+        }
+      }
+    </script>
+  </body>
+</html>
