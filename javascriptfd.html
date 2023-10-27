@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+      body {
+        background-color: palevioletred;
+        
+      }
+
+      .container {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: gray;
+        height: 180px;
+      }
+
+      input {
+        width: 100%px;
+        padding: 10px;
+        margin: 5px 0;
+      }
+      #result{
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>FD Rate Calculator</h2>
+      <input type="number" id="tenure" placeholder="Tenure months" /><br>
+
+      <button onclick="calculateInterestRate()">Calculate</button>
+
+      <p>Interest Rate: <span id="result"></span></p>
+    </div>
+
+    <script>
+      function calculateInterestRate() {
+        const tenure = parseInt(document.getElementById("tenure").value);
+
+        let interestRate = 0.1;
+        const principal = 1000;
+
+        document.getElementById("result").textContent =
+          (interestRate * 100).toFixed(2) + "%";
+      }
+    </script>
+  </body>
+</html>
