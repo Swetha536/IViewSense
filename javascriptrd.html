@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: chartreuse;
+      }
+      .container {
+        max-width: 400px;
+        margin-left: 530px;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: white;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+      }
+
+      button {
+        background-color: blue;
+        color: white;
+        height: 36px;
+        width: 90px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>RD Calculator</h1>
+      <label for="principal">Principal Amount (₹):</label>
+      <input
+        type="number"
+        id="principal"
+        placeholder="Enter the principal amount"
+      />
+
+      <label for="interestRate">Annual Interest Rate (%):</label>
+      <input
+        type="number"
+        id="interestRate"
+        placeholder="Enter the annual interest rate"
+      />
+
+      <label for="months">Number of Months:</label>
+      <input
+        type="number"
+        id="months"
+        placeholder="Enter the number of Months"
+      />
+
+      <button onclick="calculateRD()">Calculate</button>
+
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function calculateRD() {
+        var principal = parseFloat(document.getElementById("principal").value);
+        var interestRate = parseFloat(
+          document.getElementById("interestRate").value
+        );
+        var months = parseInt(document.getElementById("months").value);
+
+        var monthlyRate = interestRate / 12 / 100;
+        var TotalAmount =
+          principal * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+
+        document.getElementById("result").innerHTML =
+          "Total Amount after 5 months:₹" + TotalAmount.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
