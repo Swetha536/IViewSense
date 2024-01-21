@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const massMark = 86;
+      const heightMark = 1.89;
+      const massJohn = 82;
+      const heightJohn = 1.86;
+      const BMIMark = massMark / heightMark ** 2;
+      const BMIJohn = massJohn / (heightJohn * heightJohn);
+      console.log(BMIMark);
+      console.log(BMIJohn);
+      const markHigherBMI = BMIMark > BMIJohn;
+      console.log(BMIMark, BMIJohn, markHigherBMI);
+    </script>
+  </body>
+</html>
