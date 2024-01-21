@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const calcaverage = (a, b, c) => (a + b + c) / 3;
+      console.log(calcaverage(3, 4, 5));
+      const dolphinsscore1 = prompt("enter the 1st score of dolphin");
+      const dolphinsscore2 = prompt("enter the 2nd score of dolphin");
+      const dolphinsscore3 = prompt("enter the 3rd score of dolphin");
+      const koalasscore1 = prompt("enter the 1st score of dolphin");
+      const koalasscore2 = prompt("enter the 2nd score of dolphin");
+      const koalasscore3 = prompt("enter the 3rd score of dolphin");
+      const daverage = dolphinsscore1 + dolphinsscore2 + dolphinsscore3;
+      const kaverage = koalasscore1 + koalasscore2 + koalasscore3;
+      const checkwinner = function (daverage, kaverage) {
+        if (daverage >= 2 * kaverage) {
+          console.log("dolphin wins ${daverage} vs ${kaverage}");
+        } else if (kaverage >= 2 * daverage) {
+          console.log("koalas win ${kaverage} vs ${daverage}");
+        } else {
+          console.log("no one wins");
+        }
+      };
+      checkwinner(daverage, kaverage);
+    </script>
+  </body>
+</html>
