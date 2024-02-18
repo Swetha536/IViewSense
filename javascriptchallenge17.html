@@ -1,0 +1,61 @@
+!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .poll {
+        width: 100px;
+      }
+      .poll1 {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="header">A Closer Look at Function</h1>
+    <button class="poll1">click</button>
+    <button class="poll">poll</button>
+  </body>
+  <script>
+    const poll = {
+      question: "What is your favourite programming language?",
+      options: ["0:Javascript", "1:Python", "2:Rust", "3:C++"],
+      answers: new Array(4).fill(0),
+      registerNewAnswer() {
+        const answer = Number(
+          prompt(
+            `${this.question}\n${this.options.join(
+              "\n"
+            )}\n(write option number)`
+          )
+        );
+        console.log(answer);
+
+        typeof answer === "number" &&
+          answer < this.answer.length &&
+          this.answers[answer]++;
+
+        this.displayResults();
+        this.displayResults("string");
+      },
+      displayResults(type = "array") {
+        if (type === "array") {
+          console.log(this.answers);
+        } else if (type === "string") {
+          console.log(`poll results are ${this.answers.join(", ")}`);
+        }
+      },
+    };
+
+    document
+      .querySelector(".poll")
+      .addEventListener("click", poll.registerNewAnswer.bind(poll));
+
+    poll.displayResults.call({ answers: [5, 2, 3] }, "string");
+
+    poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
+    poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+  </script>
+</html>

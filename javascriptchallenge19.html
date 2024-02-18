@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>working with arrays task 2</title>
+  </head>
+  <body>
+    <script>
+      const calcAveragehumanAge = function (ages) {
+        const humanAge = ages.map((age) => (age <= 2 ? 2 * age : 16 + age * 4));
+        const adults = humanAge.filter((age) => age >= 18);
+        console.log(humanAge);
+        console.log(adults);
+
+        const average = adults.reduce(
+          (acc, age, i, arr) => acc + age / arr.length,
+          0
+        );
+
+        return average;
+      };
+
+      const avg1 = calcAveragehumanAge([5, 2, 4, 1, 15, 8, 3]);
+      const avg2 = calcAveragehumanAge([16, 6, 10, 1, 4]);
+      console.log(avg1, avg2);
+    </script>
+  </body>
+</html>

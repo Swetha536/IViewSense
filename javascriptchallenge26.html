@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async js 2</title>
+    <style>
+      .images img {
+        max-width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="images"></div>
+
+    <script>
+      function createImage(imgPath) {
+        return new Promise((resolve, reject) => {
+          const img = document.createElement("img");
+          img.src = imgPath;
+
+          img.addEventListener("load", () => {
+            document.querySelector(".images").appendChild(img);
+            resolve(img);
+          });
+
+          img.addEventListener("error", () => {
+            reject(new Error("Image loading failed"));
+          });
+        });
+      }
+
+      function wait(seconds) {
+        return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+      }
+
+      let currentImg;
+
+      createImage("dogimg.jpeg")
+        .then((img) => {
+          currentImg = img;
+          return wait(2);
+        })
+        .then(() => {
+          currentImg.style.display = "none";
+          return createImage("catimg.jpeg");
+        })
+        .then((img) => {
+          currentImg = img;
+          return wait(2);
+        })
+        .then(() => {
+          currentImg.style.display = "none";
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
+</html>
